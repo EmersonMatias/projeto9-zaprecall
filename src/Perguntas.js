@@ -18,6 +18,10 @@ export default function Perguntas({ pergunta, resposta, index, PerguntaAberta, s
         }
     }
 
+    function Aberta(){
+        alert("Já foi responido")
+    }
+
     function AbrirResposta() {
         setRespostaAberta(true)
     }
@@ -52,18 +56,19 @@ export default function Perguntas({ pergunta, resposta, index, PerguntaAberta, s
 
     return (
         <>
-            <NumPergunta onClick={AbrirPergunta} PerguntaAberta={PerguntaAberta} Numero={Numero} Respondido={Respondido} CorTexto={CorTexto} Riscado={Riscado}>
+            <NumPergunta 
+            PerguntaAberta={PerguntaAberta} Numero={Numero} Respondido={Respondido} CorTexto={CorTexto} Riscado={Riscado} data-identifier="flashcard-index-item">
                 <p>Pergunta {Numero} </p>
-                <img src={MudaImagem()} alt="" />
+                <img src={MudaImagem()} alt="" onClick={Respondido.includes(Numero) ? Aberta : AbrirPergunta} data-identifier="flashcard-show-btn flashcard-status"/>
 
             </NumPergunta>
 
             <Pergunta PerguntaAberta={PerguntaAberta} Numero={Numero} RespostaAberta={RespostaAberta}>
                 <p>{pergunta}</p>
-                <img onClick={AbrirResposta} src={setavirar} alt=""></img>
+                <img onClick={AbrirResposta} src={setavirar} alt="" data-identifier="flashcard-turn-btn"/>
             </Pergunta>
 
-            <Resposta PerguntaAberta={PerguntaAberta} Numero={Numero} RespostaAberta={RespostaAberta}>
+            <Resposta PerguntaAberta={PerguntaAberta} Numero={Numero} RespostaAberta={RespostaAberta} data-identifier="flashcard-answer">
                 <p>{resposta}</p>
             </Resposta>
         </>
@@ -85,6 +90,7 @@ const NumPergunta = styled.div`
     border-radius: 5px;
 
     p{
+        font-family: Recursive;
         margin-left: 10px;
         color: ${props => props.CorTexto};
         font-weight: 700;
@@ -110,7 +116,10 @@ const Pergunta = styled.div`
     border-radius: 5px;
 
     p{
+        font-family: Recursive;
         margin-top: 20px;
+        color:#333333;
+        font-weight: 400;
     }
     
     img{
@@ -133,8 +142,11 @@ const Resposta = styled.div`
     border-radius: 5px;
 
     p{
+        font-family: Recursive;
+        color: #333333;
         margin-top: 20px;
         text-align: center;
+        font-weight: 400;
     }
 
 `

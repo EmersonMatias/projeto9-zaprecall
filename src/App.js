@@ -22,17 +22,13 @@ export default function App() {
     const [NãoLembrei, setNãoLembrei] = useState([])
     const [QuaseNLembrei, setQuaseNLembrei] = useState([])
     const [Zap, setZap] = useState([])
-    console.log(NãoLembrei)
-    console.log(QuaseNLembrei)
-    console.log(Zap)
-    console.log(Respondido)
-    console.log(PerguntaAberta)
-    console.log(RespostaAberta)
 
     return (
         <>
             <GlobalStyle />
-            <Top PerguntaAberta={PerguntaAberta}
+
+            <Top
+                PerguntaAberta={PerguntaAberta}
                 setPerguntaAberta={setPerguntaAberta}
                 RespostaAberta={RespostaAberta}
                 setRespostaAberta={setRespostaAberta}
@@ -40,8 +36,11 @@ export default function App() {
                 QuaseNLembrei={QuaseNLembrei}
                 Zap={Zap}
                 Respondido={Respondido}
-                Questions={Questions} />
-            <Bot RespostaAberta={RespostaAberta}
+                Questions={Questions}
+            />
+
+            <Bot
+                RespostaAberta={RespostaAberta}
                 PerguntaAberta={PerguntaAberta}
                 setNãoLembrei={setNãoLembrei}
                 setQuaseNLembrei={setQuaseNLembrei}
@@ -53,7 +52,8 @@ export default function App() {
                 setRespostaAberta={setRespostaAberta}
                 Respondido={Respondido}
                 setRespondido={setRespondido}
-                Questions={Questions}  />
+                Questions={Questions}
+            />
         </>
     )
 }

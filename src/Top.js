@@ -13,7 +13,8 @@ export default function Top({ PerguntaAberta, setPerguntaAberta, RespostaAberta,
             </Logo>
             <ContainerPerguntas>
                 {Questions.map((Pgt, index) => (
-                    <Perguntas pergunta={Pgt.pergunta}
+                    <Perguntas data-identifier="flashcard" 
+                        pergunta={Pgt.pergunta}
                         resposta={Pgt.resposta} key={index}
                         index={index}
                         PerguntaAberta={PerguntaAberta}
@@ -23,7 +24,8 @@ export default function Top({ PerguntaAberta, setPerguntaAberta, RespostaAberta,
                         Respondido={Respondido}
                         NãoLembrei={NãoLembrei}
                         QuaseNLembrei={QuaseNLembrei}
-                        Zap={Zap}></Perguntas>
+                        Zap={Zap}>
+                    </Perguntas>
                 ))}
             </ContainerPerguntas>
 
@@ -44,12 +46,13 @@ const Logo = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: purple;
     margin-top: 20px;
     
     p{
+        font-family: Righteous;
         font-size: 36px;
         padding: 20px;
+        color: #FFFFFF;
     }
 
     img{
@@ -60,7 +63,7 @@ const ContainerPerguntas = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: pink;
+    background-color: #FB6B6B;
     margin-top: 30px;
     
     overflow-y: scroll;

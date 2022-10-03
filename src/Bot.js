@@ -49,12 +49,12 @@ export default function Bot({ RespostaAberta, PerguntaAberta, setNãoLembrei, se
     return (
         <MainBot>
             <div>
-                <RedButton onClick={BotãoNãoLembrei}>Não lembrei</RedButton>
-                <OrangeButton onClick={BotãoQuaseNLembrei}>Quase não Lembrei</OrangeButton>
-                <GreenButton onClick={BotãoZap}>Zap!</GreenButton>
+                <RedButton onClick={BotãoNãoLembrei} data-identifier="forgot-btn">Não lembrei</RedButton>
+                <OrangeButton onClick={BotãoQuaseNLembrei} data-identifier="almost-forgot-btn">Quase não Lembrei</OrangeButton>
+                <GreenButton onClick={BotãoZap} data-identifier="zap-btn">Zap!</GreenButton>
             </div>
 
-            <p>{Respondido.length}/{Questions.length} Concluídos</p>
+            <p data-identifier="flashcard-counter">{Respondido.length}/{Questions.length} Concluídos</p>
 
 
         </MainBot>
@@ -65,49 +65,53 @@ const MainBot = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-  
-    background-color: green;
+    background-color: #FFFFFF;
     height: 20vh;
 
     div{
         margin-top: 15px;
         width: 100vw;
-        background-color: pink;
         display: flex;
         align-items: center;
         justify-content: space-around;
     }
 
     p{
+        font-family: Recursive;
         font-size: 20px;
         margin-top: 5vh;
     }
 
 `
 const RedButton = styled.button`
+    font-family: Recursive;
     border-radius: 5px;
     background-color: #FF3030;
     color: white;
     width: 85px;
     height: 50px;
+    border: none;
 
 
 `
 
 const OrangeButton = styled.button`
+    font-family: Recursive;
     border-radius: 5px;
     background-color:#FF922E;
     flex-wrap: wrap;
     color: white;
     width: 100px;
     height: 50px;
-
+    border: none;
  
 `
 const GreenButton = styled.button`
+    font-family: Recursive;
     border-radius: 5px;
     background-color:#2FBE34;
     color: white;
     width: 85px;
     height: 50px;
+    border: none;
 `
